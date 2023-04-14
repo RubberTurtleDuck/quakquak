@@ -1,0 +1,27 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+<section class="bg-beige fill-screen">
+    <div class="container-fluid panel">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="hind-700 x3 blue">Register</h1>
+            </div>
+        </div>
+        <div class="row text-panel">
+            <div class="col text-left">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %} 
+                    {% endif %} 
+                {% endwith %} 
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"})}}
+            </div>
+        </div>
+    </div>
+</section>
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,76 @@
+{% block content %}
+{% include "header.html" %}
+
+
+<section class="bg-beige dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            {% for task in tasks %}
+                {% if task.tag == "Birthday" %}
+                <div class="col-sm-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; background-color: #FFEA20;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.task }}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.end_date.strftime("%d-%m-%Y") }} | <span class="badge text-bg-warning">Birthday</span></h6>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a href="{{ url_for('delete_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Task Complete</button></a>
+                            <a href="{{ url_for('edit_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Edit Task</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% elif task.tag == "None" %}
+                <div class="col-sm-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.task }}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.end_date.strftime("%d-%m-%Y") }}</h6>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a href="{{ url_for('delete_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Task Complete</button></a>
+                            <a href="{{ url_for('edit_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Edit Task</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% elif task.tag == "Personal" %}
+                <div class="col-sm-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; background-color: #82CD47;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.task }}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.end_date.strftime("%d-%m-%Y") }} | <span class="badge text-bg-success">Personal</span></h6>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a href="{{ url_for('delete_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Task Complete</button></a>
+                            <a href="{{ url_for('edit_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Edit Task</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% elif task.tag == "Urgent" %}
+                <div class="col-sm-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; background-color: #FF6363;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.task }}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.end_date.strftime("%d-%m-%Y") }} | <span class="badge text-bg-danger">Urgent</span></h6>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a href="{{ url_for('delete_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Task Complete</button></a>
+                            <a href="{{ url_for('edit_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Edit Task</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% elif task.tag == "Work" %}
+                <div class="col-sm-4 col-12 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; background-color: #31E1F7;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ task.task }}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.end_date.strftime("%d-%m-%Y") }} | <span class="badge text-bg-primary">Work</span></h6>
+                            <p class="card-text">{{ task.description }}</p>
+                            <a href="{{ url_for('delete_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Task Complete</button></a>
+                            <a href="{{ url_for('edit_task', task_id=task.id) }}" class="card-link"><button class="btn btn-trans btn-outline-dark">Edit Task</button></a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+<section class="bg-beige fill-screen">
+    <div class="container-fluid big-panel">
+        <div class="row text-center ">
+            <div class="col">
+                <h1 class="hind-700 x3 blue">Contact</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-left">
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"})}}
+            </div>
+        </div>
+    </div>
+</section>
+{% include "footer.html" %}
+{% endblock %}

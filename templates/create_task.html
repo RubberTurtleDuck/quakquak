@@ -1,0 +1,31 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+<section class="bg-beige fill-screen">
+    <div class="container-fluid big-panel">
+        <div class="row">
+            <div class="col text-center">
+                {% if is_edit %}
+                <h1 class="hind-700 x3 blue">Edit task</h1>
+                {% else %}
+                <h1 class="hind-700 x3 blue">Create task</h1>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %} 
+                    {% endif %} 
+                {% endwith %} 
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"})}}
+            </div>
+        </div>
+    </div>
+</section>
+{% include "footer.html" %}
+{% endblock %}

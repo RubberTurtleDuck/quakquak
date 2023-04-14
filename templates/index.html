@@ -1,0 +1,71 @@
+{% include "header.html" %}
+
+<section class="center-phone-content bg-blue">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-7 justify">
+                <h1 class="hind-700 x4 beige primary">Welcome to the best organizational tool in the world</h1>
+                <a href="{{ url_for('register') }}"><button type="button" class="btn btn-lg btn-light">Register</button></a>
+                <a href="{{url_for('login') }}"><button type="button" class="btn btn-lg btn-outline-light">Log in</button></a>
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <img src="{{ url_for('static', filename='media/duck.png')}}" alt="" id="duck">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="center-phone-content bg-beige">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 text-center">
+                <i class="fa-solid fa-display fa-4x"></i>
+                <p class="hind-400 x2 dark-blue feature">Simple and intuitive interface that makes it a easy to achieve your goals</p>
+            </div>
+            <div class="col-sm-12 col-md-4 text-center">
+                <i class="fa-regular fa-bell fa-4x"></i></i>
+                <p class="hind-400 x2 dark-blue feature">Customizable notifications to prioritize your workload.</p>
+            </div>
+            <div class="col-sm-12 col-md-4 text-center">
+                <i class="fa-regular fa-hand-peace fa-4x"></i>           
+                <p class="hind-400 x2 dark-blue feature">It's free. No ads. No complications. Just a simple To-do app.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="carousel">
+        <div class="row">
+            <div class="col">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{url_for('static', filename='media/dash.png') }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ url_for('static', filename='media/task.png') }}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="center-phone-content bg-blue">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h3 class="hind-700 x3 beige secondary">What are you waiting for?</h3>
+                <h1 class="hind-700 x4 beige primary">Start optimizing your life today!</h1>
+                <a href="{{ url_for('register') }}"><button type="button" class="btn btn-lg btn-light">Register</button></a>
+                <a href="{{url_for('login') }}"><button type="button" class="btn btn-lg btn-outline-light">Log in</button></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% include "footer.html" %}
