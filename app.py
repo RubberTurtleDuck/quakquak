@@ -180,8 +180,8 @@ with app.app_context():
         contact_form = ContactForm()
         if contact_form.validate_on_submit():
             with smtplib.SMTP("smtp.gmail.com") as connection:
-                my_email = "vladd.hagiu@gmail.com"
-                password = "wvxczxvjbrsnyeku"
+                my_email = "something@gmail.com"
+                password = "somerandomepassword"
                 connection.starttls()
                 connection.login(user=my_email, password=password)
                 connection.sendmail(
